@@ -1,0 +1,189 @@
+##
+# Allow access from all domains for webfonts
+# @see https://github.com/h5bp/html5-boilerplate
+##
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font\.css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+##
+# Disable ETags
+# @see http://developer.yahoo.com/performance/rules.html#etags
+##
+FileETag None
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+
+##
+# Set the proper MIME types
+# @see https://github.com/h5bp/html5-boilerplate
+##
+<IfModule mod_mime.c>
+  AddType application/javascript              js jsonp
+  AddType application/json                    json
+  AddType audio/ogg                           oga ogg
+  AddType audio/mp4                           m4a f4a f4b
+  AddType video/ogg                           ogv
+  AddType video/mp4                           mp4 m4v f4v f4p
+  AddType video/webm                          webm
+  AddType video/x-flv                         flv
+  AddType image/svg+xml                       svg svgz
+  AddEncoding gzip                            svgz
+  AddType application/vnd.ms-fontobject       eot
+  AddType application/x-font-ttf              ttf ttc
+  AddType font/opentype                       otf
+  AddType application/x-font-woff             woff
+  AddType image/x-icon                        ico
+  AddType image/webp                          webp
+  AddType text/cache-manifest                 appcache manifest
+  AddType text/x-component                    htc
+  AddType application/xml                     rss atom xml rdf
+  AddType application/x-web-app-manifest+json webapp
+  AddType text/x-vcard                        vcf
+  AddType application/x-shockwave-flash       swf
+</IfModule>
+
+##
+# Gzip compression
+# @see https://github.com/h5bp/html5-boilerplate
+##
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml 
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon 
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE font/opentype
+</IfModule>
+
+##
+# Expires headers (for better cache control)
+# @see https://github.com/h5bp/html5-boilerplate
+##
+<IfModule mod_expires.c>
+  ExpiresActive on
+
+  ##
+  # Productional website
+  ##
+  ExpiresByType text/cache-manifest           "access plus 0 seconds"
+  ExpiresByType text/html                     "access plus 0 seconds"
+  ExpiresByType text/xml                      "access plus 0 seconds"
+  ExpiresByType application/xml               "access plus 0 seconds"
+  ExpiresByType application/json              "access plus 0 seconds"
+  ExpiresByType application/rss+xml           "access plus 1 hour"
+  ExpiresByType application/atom+xml          "access plus 1 hour"
+  ExpiresByType image/gif                     "access plus 1 month"
+  ExpiresByType image/png                     "access plus 1 month"
+  ExpiresByType image/jpeg                    "access plus 1 month"
+  ExpiresByType image/x-icon                  "access plus 1 month"
+  ExpiresByType video/ogg                     "access plus 1 month"
+  ExpiresByType audio/ogg                     "access plus 1 month"
+  ExpiresByType video/mp4                     "access plus 1 month"
+  ExpiresByType video/webm                    "access plus 1 month"
+  ExpiresByType text/x-component              "access plus 1 month"
+  ExpiresByType application/x-font-ttf        "access plus 1 month"
+  ExpiresByType font/opentype                 "access plus 1 month"
+  ExpiresByType application/x-font-woff       "access plus 1 month"
+  ExpiresByType image/svg+xml                 "access plus 1 month"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+
+  ##
+  # Disable caching during development
+  # @see https://github.com/contao/core/issues/4364
+  ##
+  #ExpiresByType text/cache-manifest           "access"
+  #ExpiresByType text/html                     "access"
+  #ExpiresByType text/xml                      "access"
+  #ExpiresByType application/xml               "access"
+  #ExpiresByType application/json              "access"
+  #ExpiresByType application/rss+xml           "access"
+  #ExpiresByType application/atom+xml          "access"
+  #ExpiresByType image/gif                     "access"
+  #ExpiresByType image/png                     "access"
+  #ExpiresByType image/jpeg                    "access"
+  #ExpiresByType image/x-icon                  "access"
+  #ExpiresByType video/ogg                     "access"
+  #ExpiresByType audio/ogg                     "access"
+  #ExpiresByType video/mp4                     "access"
+  #ExpiresByType video/webm                    "access"
+  #ExpiresByType text/x-component              "access"
+  #ExpiresByType application/x-font-ttf        "access"
+  #ExpiresByType font/opentype                 "access"
+  #ExpiresByType application/x-font-woff       "access"
+  #ExpiresByType image/svg+xml                 "access"
+  #ExpiresByType application/vnd.ms-fontobject "access"
+  #ExpiresByType text/css                      "access"
+  #ExpiresByType application/javascript        "access"
+
+</IfModule>
+
+##
+# Header adjustments
+##
+<IfModule mod_headers.c>
+
+  ##
+  # Disable caching during development
+  # @see https://github.com/contao/core/issues/4364
+  ##
+  #Header unset Cache-Control
+  #Header append Cache-Control must-revalidate
+
+  ##
+  # Do not cache the cron.txt file
+  # @see https://github.com/contao/core/issues/5105
+  ##
+  <FilesMatch "cron\.txt$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate, no-transform"
+  </FilesMatch>
+
+  ##
+  # Add a Vary Accept-Encoding header for the compressed resources. If you
+  # modify the file types above, make sure to change them here accordingly.
+  # @see http://developer.yahoo.com/performance/rules.html#gzip
+  #
+  # Note: If you are using a case-sensitive file system like HFS+ or ext4, you
+  # have to change the <FilesMatch> directive as follows:
+  #
+  # <FilesMatch "\.(?i:js|css|xml|gz|svgz)$">
+  #
+  # For more information see: https://github.com/contao/core/issues/4364
+  ##
+  <FilesMatch "\.(js|css|xml|gz|svgz)$">
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+
+</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # -- START PHINE GENERATED
+    # -- END PHINE GENERATED
+    
+    # You might need a rewrite base, but apache might work without
+    #RewriteBase /
+    
+    #RewriteCond %{HTTP_HOST} ^agent-media\.com$ [NC]
+    #RewriteRule (.*) http://www.agent-media.com/$1 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !\.(htm|php|js|css|htc|png|gif|jpe?g|ico|csv|txt|swf|flv|mp4|webm|ogv|mp3|ogg|oga|eot|otf|tt[cf]|woff|svg|svgz|pdf|gz)$
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (.*)$ index.php [QSA,L]
+</IfModule>

@@ -1,0 +1,435 @@
+@CHARSET "UTF-8";
+
+body
+{
+    
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #333333;
+}
+
+header
+{
+    padding-top: 0.725em;
+    background-color: white;
+   
+    box-shadow: 0px 2px 2px black;
+    border-bottom: 0.375em solid #7900a9;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+header .inline-list li.active
+{
+    text-decoration: underline;
+}
+#contents
+{
+    padding: 8.5em 0 0 0;
+    background: url('../img/body-bg.png') repeat white;
+}
+
+#logo
+{
+   
+    background: url('../img/logo.png') left top no-repeat;
+    padding-left:95px;
+    padding-top: 0.5em;
+    font-size: 2rem;
+    font-weight: bold;
+    min-height: 2em;
+    margin-bottom: 0.5em;
+}
+
+#logo a
+{
+    text-shadow: 2px 2px 1px #cccccc;
+}
+header a
+{
+    color: #7900a9;
+}
+
+header .inline-list a
+{
+    
+    text-shadow: 1px 1px 1px #cccccc;
+}
+.panel
+{
+    background-color: white;
+    border: 0px none;
+    border: 1px solid #333333;
+    box-shadow: 3px 3px 2px #cccccc;
+}
+
+.panel h3
+{
+    border-bottom: 1px solid #444444;
+}
+
+button, 
+.button
+{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.button.fa
+{
+    font-family: 'FontAwesome';
+    line-height: normal;
+}
+
+h1,h2,h3,h4,h5,h6,
+.panel h1,.panel h2,.panel h3,.panel h4,.panel h5,.panel h6
+{
+    font-family: 'Lobster Two', cursive;
+    color: #444444;
+}
+
+
+
+.top-bar .name img
+{
+    max-height: 2.5em;
+    margin-left: 0.25em;
+    margin-top: 0.25em;
+    
+}
+
+footer
+{
+    padding-top:1em;
+}
+
+
+footer a
+{
+    color: white;
+}
+
+footer a:hover
+{
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+.top-bar.expanded .toggle-topbar a span {
+    box-shadow: none;
+}
+
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+    background-color: #A600E8;
+    line-height: 45px;
+    padding: 0 15px;
+}
+
+pre.CodeMirror
+{
+    padding: 0.25em;
+    margin: 1.25rem 0;
+    overflow-x: scroll;
+}
+
+/*
+  Editable tree & list classes
+*/
+
+.editable-tree table,
+.editable-list table
+{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+.editable-tree tr
+{
+    display: none;
+}
+.editable-tree tr td:last-child,
+.editable-tree tr th:last-child,
+.editable-list tr td:last-child,
+.editable-list tr th:last-child
+{
+    text-align: right;
+}
+
+.editable-tree td .button,
+.editable-list td .button
+{
+    margin-bottom: 0;
+}
+
+.editable-tree tr.open, .editable-tree tr:first-child
+{
+    display: table-row;
+}
+
+.editable-tree tr:nth-of-type(2n),
+.editable-list tr:nth-of-type(2n)
+{
+    background-color: transparent;
+}
+
+.editable-list tr.head-row:nth-of-type(2n)
+{
+    background-color: whitesmoke;
+}
+
+
+.editable-tree td,
+.editable-list td
+{
+    border-bottom: 1px solid #dddddd;
+}
+.editable-tree .tree-toggler
+{
+    font-family: "foundation-icons";
+    display: inline-block;
+    width: 14px;
+    color: #bababa;
+}
+.editable-tree .has-children.open .tree-toggler:before,
+.editable-tree .tree-toggler:before
+{
+    content: "\f176"; /*minus*/
+}
+
+.editable-tree .has-children .tree-toggler:before
+{
+    content: "\f199";/*plus*/
+}
+
+.editable-tree .tiny.button,
+.editable-list .tiny.button
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.editable-tree .dropdown.button.tiny,
+.editable-list .dropdown.button.tiny
+{
+    padding-right: 25px;
+}
+
+.editable-tree .dropdown.button.tiny:before,
+.editable-list .dropdown.button.tiny:before{
+
+    right: 0.5rem;
+}
+
+.editable-tree .f-dropdown li,
+.editable-list .f-dropdown li
+{
+    text-align: left;
+}
+
+.editable-tree label.inline
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: inline;
+}
+
+.editable-tree input[type=radio]
+{
+    margin-bottom: 0;
+}
+
+.head-row
+{
+    background-color: whitesmoke;
+}
+
+.head-row th,
+.sub-head-row th,
+.sub-sub-head-row th
+{
+    text-align: left;
+}
+
+.sub-head-row th,
+.sub-sub-head-row th
+{
+    border-bottom: 1px solid #dddddd;
+}
+
+.sub-sub-head-row th
+{
+    padding-left: 25px;
+    font-weight: normal;
+}
+
+.locked
+{
+    display: inline-block;
+    padding: 0.5rem;
+    color: gray;
+}
+.locked:before 
+{
+    content : "\f023";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: inherit;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+input[type=text][readonly]
+{
+    background-color: #dddddd;
+    color: gray;
+}
+
+.button-back
+{
+    margin-bottom: 0px;
+}
+.button-back .button
+{
+    margin-bottom: 0;
+}
+
+/* bundle overview */
+
+.bundle-overview ul
+{
+    margin-left: 0;
+    list-style-type: none;
+    list-style-position: outside;
+}
+.bundle-overview li
+{
+    background-color: #f4f4f4;
+}
+.bundle-overview li h4
+{
+    padding: 10px 10px 0px 10px;
+}
+.bundle-overview li p
+{
+    font-size: 0.875rem;
+    
+    padding:0px 10px 10px 10px;
+}
+
+.bundle-overview li p
+{
+    min-height: 8em;
+}
+#progress-modal .panel
+{
+    background-color: #f4f4f4;
+}
+.progress-panel
+{
+    background-color: #bababa;
+    border: 1px solid #333333;
+    height: 20px;
+    width: 100%;
+}
+
+
+.progress-bar
+{
+    background-color: #5da423;
+    height: 100%;
+}
+
+.page-url-full
+{
+    font-size: 0.875rem;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.ui-spinner
+{
+    margin: 0 0 1rem;
+}
+
+
+.ui-spinner input[type="text"]
+{
+    margin-bottom: 0;
+}
+
+
+/* ck editor as phine field element */
+.phine-cke
+{
+    margin: 0 0 1rem;
+}
+/*some lines for text areas*/
+textarea
+{
+    min-height: 150px;
+}
+/* nicer fieldsets in fieldset */
+fieldset fieldset
+{
+    background-color: #fafafa;
+}
+
+fieldset fieldset legend
+{
+    background-color: transparent;
+}
+/*wording table*/
+#wording-table
+{
+    display:table;
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid #cccccc;
+}
+
+
+#wording-table .wording-row
+{
+    display:table-row;
+    
+}
+
+#wording-table .wording-row:nth-child(even)
+{
+    background-color: #f4f4f4;
+}
+#wording-table .wording-row label,
+#wording-table .wording-row input[type=text]
+{
+    display:table-cell;
+    margin-bottom: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0.5rem;
+
+}
+
+
+#wording-table .wording-row input[type=text]
+{
+    border-left: 1px solid #cccccc;
+    font-style: italic;
+}
+
+/*fixes bug with errors below select boxes*/
+select.error
+{
+    margin-bottom: 0px;
+}

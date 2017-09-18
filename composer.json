@@ -1,0 +1,23 @@
+{
+    "name": "agentmedia/phine-builtin",
+    "description": "Bootstaps projects using the Phine CMS",
+    "license": "Apache License 2.0",
+	"type": "phine-project",
+    "homepage": "http://github.com/agentmedia/phine-project",
+    "authors": [
+        {
+            "name": "Klaus Potzesny",
+            "homepage": "http://www.agent-media.com/",
+            "role": "head developer",
+            "email": "info@agent-media.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+		"agentmedia/phine-core" : "*",
+		"agentmedia/phine-framework" : "*"
+    },
+    "autoload" : {
+      "psr-4": { "Phine\\Bundles\\": "src/" }
+    }
+}

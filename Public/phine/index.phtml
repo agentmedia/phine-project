@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phine - PHP Framework and CMS</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic|Lobster+Two:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="Font-Awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <?php echo $this->module->RenderBlock('HeadScript') ?>
+</head>
+<body>
+    <div id="delete-modal" class="reveal-modal small" data-reveal="true">
+        <h1><?php TransOut('Core.ModalDelete.Title')?></h1>
+        <p>
+            DELETE DESCRIPTION PLACEHOLDER
+        </p>
+        <form method="post">
+            <input type="hidden" name="delete" id="modal-delete-field" />
+            <a id="modal-delete-close" class="small secondary button"><?php TransOut('Core.ModalDelete.Cancel')?></a>
+            <input type="submit" class="small button alert" value="<?php TransOut('Core.ModalDelete.Confirm')?>" />
+        </form>
+    </div>
+    <div id="ajax-modal" class="reveal-modal medium" data-reveal="true">
+        
+    </div>
+    
+    <header>
+        <form id="logout-form" method="post" style="display: none;">
+            <input type="hidden" name="logout" value="1" />
+        </form>
+        <div class="row show-for-large-up">
+            <div class="large-4 columns">
+                <div id="logo">
+                    <a href="#">Phine &CenterDot; CMS</a>
+                </div>
+            </div>
+            <div class="large-8 columns">
+            <nav id="top-nav">
+                <ul class="inline-list Level_0 right">
+                    <li><a class="logout-link" href="#">Logout</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+        <div class="row show-for-medium-down">
+            <div class="large-12 columns">
+                <nav class="top-bar hide-for-large" data-topbar="data-topbar"  >
+                <ul class="title-area">
+                    <li class="name"><a href="#"><span><img src="img/logo.png" alt="Home" /></span></a></li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                    <ul class="Level_0 right">
+                        <li><a class="logout-link" href="#">Logout</a></li>
+                    </ul>
+                </section>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="contents">
+        <div class="row">
+            <aside class="large-2 columns">
+                <?php echo $this->sideNav->Render(); ?>
+            </aside>
+            <div class="large-10 columns">
+                <div class="panel">
+                <?php echo $this->module->Render(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="large-12 columns">
+            <ul class="inline-list">
+                <li>
+                    <a href="http://www.agent-media.com">by agent media</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/vendor/globalize.js"></script>    
+    <script src="js/vendor/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/phine/rights-toggler.js"></script>
+    <script src="js/phine/membergroup-toggler.js"></script>
+    <script src ="js/phine/datepick-initializer.js"></script>
+    <script src ="js/phine/timepick-initializer.js"></script>
+    <script src="js/phine/publish-toggler.js"></script>
+    <script>
+        $(document).foundation();
+        $(function(){
+            $('.logout-link').click(function(e){
+                 e.preventDefault();
+                $('#logout-form').submit();
+            });
+            var toggler = new rightsToggler();
+            toggler.init();
+            
+            var memToggler = new membergroupToggler();
+            memToggler.init();
+            
+            var pubToggler = new publishToggler();
+            pubToggler.init();
+            
+            var dateInitializer = new datepickInitializer(<?php JsVarOut($this->language)?>);
+            dateInitializer.init();
+            
+            var timeInitializer = new timepickInitializer();
+            timeInitializer.init();
+        });
+    </script>
+    <?php echo $this->module->RenderBlock('EndScript'); ?>
+</body>
+</html>
