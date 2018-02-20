@@ -1,6 +1,6 @@
 {
     "name": "agentmedia/phine-project",
-    "description": "Bootstaps projects using the Phine CMS",
+    "description": "Bootstraps projects using the Phine CMS",
     "license": "Apache-2.0",
     "type": "phine-project",
     "homepage": "http://github.com/agentmedia/phine-project",
