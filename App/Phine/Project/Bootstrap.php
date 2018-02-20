@@ -2,9 +2,6 @@
 namespace App\Phine\Project;
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;
-use Phine\Framework\System\IO\Folder;
-use Phine\Framework\System\IO\Path;
-use Phine\Framework\System\IO\File;
 use Composer\Composer;
 /**
  * Bootstraps the project
