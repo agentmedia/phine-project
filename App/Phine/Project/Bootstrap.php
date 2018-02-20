@@ -46,7 +46,7 @@ class Bootstrap
         $file = readdir($handle);
         while ($file !== false)
         {   
-            if ($file != '.' && $file != '..' && is_dir($file)) {
+            if ($file != '.' && $file != '..' && is_dir($dir . '/' . $file)) {
                 $result[] = $file;
             }
             $file = readdir($handle);
