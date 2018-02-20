@@ -4,7 +4,7 @@ use Phine\Framework\System\IO\Folder;
 use Phine\Framework\System\IO\Path;
 use Phine\Framework\System\IO\File;
 use Composer\Script\Event;
-use Composer\Install\PackageEvent;
+use Composer\Installer\PackageEvent;
 use Composer\Composer;
 /**
  * Bootstraps the project
