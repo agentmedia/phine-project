@@ -55,6 +55,7 @@ class Bootstrap
         return $result;
     }
     private static function addPackageBundleInfo($packagePath, array& $bundleInfos) {
+        
         $subFolders = self::getSubFolders($packagePath . '/src');
         if (count($subFolders) !== 1) {
             throw new \LogicException('Invalid Phine bundle found. It must contain a single directory below ' . $packagePath . ' with the name of the bundle; found: ' .  var_export($subFolders, true));
@@ -63,6 +64,6 @@ class Bootstrap
         if (isset($bundleInfos[$name])) {
             throw new \LogicException("Ambiguous Phine bundle name '$name'");
         }
-        $bundleInfos[$name] = rtrim($packagePath, '/\\') . '/' . ltrim($name, '/\\');
+        $bundleInfos[$name] = rtrim($packagePath, '/\\') . '/src/' . ltrim($name, '/\\');
     }
 }
