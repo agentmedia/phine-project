@@ -55,9 +55,9 @@ class Bootstrap
         return $result;
     }
     private static function addPackageBundleInfo($packagePath, array& $bundleInfos) {
-        $subFolders = self::getSubFolders($packagePath);
+        $subFolders = self::getSubFolders($packagePath . '/src');
         if (count($subFolders) !== 1) {
-            throw new \LogicException('Invalid Phine bundle found. It must contain a single directory below ' . $packagePath . ' with the name of the bundle)');
+            throw new \LogicException('Invalid Phine bundle found. It must contain a single directory below ' . $packagePath . ' with the name of the bundle; found: ' .  var_export($subFolders, true));
         }
         $name = $subFolders[0];
         if (isset($bundleInfos[$name])) {
