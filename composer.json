@@ -3,6 +3,7 @@
     "description": "Bootstraps projects using the Phine CMS",
     "license": "Apache-2.0",
     "type": "phine-project",
+    "version": "1.0.0",
     "homepage": "http://github.com/agentmedia/phine-project",
     "authors": [
         {
