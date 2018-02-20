@@ -1,8 +1,8 @@
 {
     "name": "agentmedia/phine-builtin",
     "description": "Bootstaps projects using the Phine CMS",
-    "license": "Apache License 2.0",
-	"type": "phine-project",
+    "license": "Apache-2.0",
+    "type": "phine-project",
     "homepage": "http://github.com/agentmedia/phine-project",
     "authors": [
         {
@@ -14,10 +14,20 @@
     ],
     "require": {
         "php": ">=5.3.0",
-		"agentmedia/phine-core" : "*",
-		"agentmedia/phine-framework" : "*"
+        "composer/composer": "*",
+	"agentmedia/phine-core" : "*",
+	"agentmedia/phine-framework" : "*",
+	"agentmedia/phine-builtin" : "*"
     },
     "autoload" : {
-      "psr-4": { "Phine\\Bundles\\": "src/" }
+      "psr-4": { "App\\": "App/" }
+    },
+    
+    "scripts": {
+        "post-update-cmd": "App\\Phine\\Project\\Bootstrap::onUpdate",
+        "post-install-cmd": "App\\Phine\\Project\\Bootstrap::onUpdate",
+        "post-package-install": [
+            "App\\Phine\\Project\\Bootstrap::onPackageInstall"
+        ]
     }
 }

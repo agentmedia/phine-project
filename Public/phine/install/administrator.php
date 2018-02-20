@@ -6,12 +6,12 @@ if (!session_id())
 }
 use Phine\Bundles\Core\Logic\Installation\InstallUtil\Page;
 use Phine\Bundles\Core\Logic\Installation\InstallUtil\Content;
-use Phine\Database\Core\User;
 use Phine\Framework\Validation\DatabaseCount;
 use Phine\Framework\Validation\PhpFilter;
-use Phine\Database\Core\Language;
 use Phine\Framework\System\Str;
-use Phine\Database\Access;
+use App\Phine\Database\Core\Language;
+use App\Phine\Database\Core\User;
+use App\Phine\Database\Access;
 
 class Administrator extends Content
 {

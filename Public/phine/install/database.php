@@ -10,8 +10,7 @@ use Phine\Framework\Database\Mysqli\Connection;
 use Phine\Bundles\Core\Logic\Installation\Installer;
 use Phine\Framework\System\IO\File;
 use Phine\Bundles\Core\Logic\Util\PathUtil;
-use Phine\Database\Access;
-use Phine\Database\Core\InstalledBundle;
+use App\Phine\Database\Core\InstalledBundle;
 use Phine\Bundles\Core\Logic\Util\ClassFinder;
 use Phine\Framework\System\IO\Path;
 
@@ -80,11 +79,11 @@ class Database extends Content
     {
         try
         {
-            if (!File::Exists(Path::Combine(PHINE_PATH, 'Database/Access.php')))
+            if (!File::Exists(Path::Combine(PHINE_PATH, 'App/Phine/Database/Access.php')))
             {
                 return;
             }
-            if (!class_exists('Phine\Database\Access'))
+            if (!class_exists('App\Phine\Database\Access'))
             {
                 return;
             }
@@ -95,7 +94,7 @@ class Database extends Content
         }
         try
         {
-            $this->connection = Phine\Database\Access::Connection();
+            $this->connection = App\Phine\Database\Access::Connection();
         }
         catch (\Exception $ex)
         {
