@@ -37,7 +37,7 @@ class Bootstrap
         $pubFolder = __DIR__ . '/../../../Public/';
         $htaccessFile = $pubFolder . '.htaccess';
         if (!file_exists($htaccessFile)) {
-            $initialFile = $pubFolder . '.htacess.initial';
+            $initialFile = $pubFolder . '.htaccess.initial';
             $contents = file_get_contents($initialFile);
             $fixedLineEndings = preg_replace('~(*BSR_ANYCRLF)\R~', "\r\n", $contents);
             file_put_contents($htaccessFile, $fixedLineEndings);
