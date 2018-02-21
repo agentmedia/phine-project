@@ -10,6 +10,7 @@ class Bootstrap
 {
     public static function onUpdate(Event $event) {
         self::updateBundlesCache($event->getComposer());
+        self::createHtaccess();
     }
 
     public static function onPackageInstall(PackageEvent $event) {
@@ -29,6 +30,18 @@ class Bootstrap
             }
         }
         self::writeBundleInfos($bundleInfos);
+    }
+    
+    private static function createHtaccess()
+    {
+        $pubFolder = __DIR__ . '/../../../Public/';
+        $htaccessFile = $pubFolder . '.htaccess';
+        if (!file_exists($htaccessFile)) {
+            $initialFile = $pubFolder . '.htacess.initial';
+            $contents = file_get_contents($initialFile);
+            $fixedLineEndings = preg_replace('~(*BSR_ANYCRLF)\R~', "\r\n", $contents);
+            file_put_contents($htaccessFile, $fixedLineEndings);
+        }
     }
     
     private static function bundleInfosFile() {
