@@ -16,7 +16,9 @@
         "php": ">=5.3.0",
 	"agentmedia/phine-core" : "*",
 	"agentmedia/phine-framework" : "*",
-	"agentmedia/phine-builtin" : "*"
+	"agentmedia/phine-builtin" : "*",
+	"agentmedia/phine-forms" : "*",
+	"agentmedia/phine-news" : "*"
     },
     "autoload" : {
       "psr-4": { "App\\": "App/" }
