@@ -39,8 +39,8 @@ class Index extends Content
             $this->SetAllowed(false);
         }
         $parts = parse_ini_file(__DIR__ . '/config.ini');
-        $this->password = $parts['password'];
-        $this->salt = $parts['salt'];
+        $this->password = isset($parts['password']) ? $parts['password']  : '';
+        $this->salt = isset($parts['salt']) ? $parts['salt']  : '';
         $this->firstRun = $this->password == '';
         parent::__construct();
     }
