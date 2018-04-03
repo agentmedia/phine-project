@@ -2,9 +2,9 @@
 require_once __DIR__ . '/../LoadPhine.php';
 use Phine\Framework\System\Http\Request;
 use Phine\Framework\System\Http\Response;
-use Phine\Database\Core\Site;
-use Phine\Database\Core\Page;
-use Phine\Database\Access;
+use App\Phine\Database\Core\Site;
+use App\Phine\Database\Core\Page;
+use App\Phine\Database\Access;
 use Phine\Framework\System\Str;
 use Phine\Bundles\Core\Logic\Rendering\PageRenderer;
 use Phine\Bundles\Core\Logic\Routing\Rewriter;
